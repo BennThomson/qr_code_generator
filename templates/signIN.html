@@ -1,0 +1,16 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+    <br>
+    <br>
+    <br>
+    <div class="container">
+        <form style="text-align: center" action="{% url 'register' %}" method="post"> {% csrf_token %}
+            <h4 style="text-align: center">Ro'yxatdan otishingiz kerak</h4>
+            {{ form|crispy }}
+            <button type="submit" class="btn-success">Save</button>
+        </form>
+    </div>
+{% endblock %}
