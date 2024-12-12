@@ -36,19 +36,19 @@
 
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item"><a href="{% url 'home' %}" class="nav-link text-black-50">Home</a></li>
-                <li class="nav-item"><a href="{% url 'about' %}" class="nav-link text-black-50">About</a></li>
-                <li class="nav-item"><a href="{% url 'contact' %}" class="nav-link text-black-50">Contact</a></li>
+                <li class="nav-item"><a href="{% url 'home' %}" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="{% url 'about' %}" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="{% url 'contact' %}" class="nav-link">Contact</a></li>
                 {% if user.is_authenticated %}
                     <li class="nav-item">
-                        <a href="#" class="nav-link text-black-50">Salom,{{ request.user }}</a>
+                        <a href="#" class="nav-link">Salom,{{ request.user }}</a>
                     </li>
-                    <li class="nav-item" style="color: red"><a href="{% url 'logout' %}" class="nav-link text-black-50">Logout</a>
+                    <li class="nav-item" style="color: red"><a href="{% url 'logout' %}" class="nav-link">Logout</a>
                     </li>
                 {% else %}
-                    <li class="nav-item" style="color: red"><a href="{% url 'register' %}" class="nav-link text-black-50">Sign up</a>
+                    <li class="nav-item" style="color: red"><a href="{% url 'register' %}" class="nav-link">Sign up</a>
                     </li>
-                    <li class="nav-item" style="color: red"><a href="{% url 'login' %}" class="nav-link text-black-50">Log in</a></li>
+                    <li class="nav-item" style="color: red"><a href="{% url 'login' %}" class="nav-link">Log in</a></li>
 
                 {% endif %}
             </ul>
@@ -92,16 +92,7 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-12 text-center">
-
-                <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                    Copyright &copy;<script>document.write(new Date().getFullYear());</script>
-                    All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by
-                    <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-            </div>
-        </div>
+        
     </div>
 </footer>
 
