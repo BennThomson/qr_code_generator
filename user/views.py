@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .forms import CustomUserLoginForm, CustomUserCreationForm
+from .forms import CustomUserLoginForm, CustomUserCreationForm, CustomContactForm
 from django.contrib.auth import authenticate, login, logout
 
 
@@ -45,3 +45,13 @@ def logout_view(request):
     return redirect("login")
 
 
+def contact_view(request):
+    form = CustomContactForm()
+    if request.method == "POST":
+        form = CustomContactForm(request.POST)
+        if form.is_valid():
+            new_form = form.cleaned_data
+            form.save()
+            return redirect("contact")
+    context = {"form": form}
+    return render(request, 'contact.html', context)
