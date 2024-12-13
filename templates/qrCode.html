@@ -4,60 +4,34 @@
 <head>
     <meta charset="UTF-8">
     <title>QR Code Generator | CodingNepal</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'main/css/qrsite.css' %}">
 </head>
-<body>
+<body class="">
+
 <header>
     <h1>QR Code Generator</h1>
     <p>Paste the URL/Text here</p>
 </header>
+
 <div class="wrapper">
     <div class="form">
-        <input type="text" placeholder="Enter anything here" id="url">
+        <input type="text" placeholder="Enter text to generate QR code">
         <button>Generate QR Code</button>
+        <button class="download-btn" style="display: none;">Download QR Code</button>
     </div>
     <div class="qr-code">
-        <img decoding="async" src="" alt="qr-code">
+        <img src="" alt="qr-code">
     </div>
 </div>
+
 
 </body>
 
 <script src="{% static 'main/js/script.js' %}"></script>
-<script>
-    const wrapper = document.querySelector(".wrapper"),
-        qrInput = wrapper.querySelector(".form input"),
-        generateBtn = wrapper.querySelector(".form button"),
-        qrImg = wrapper.querySelector(".qr-code img");
-    let preValue;
-
-    generateBtn.addEventListener("click", () = &gt; {
-        let qrValue = qrInput.value.trim();
-        if(
-    !qrValue || preValue === qrValue
-    )
-    return;
-    preValue = qrValue;
-    generateBtn.innerText = "Generating QR Code...";
-    qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&amp;data=${qrValue}`;
-    qrImg.addEventListener("load", () = &gt; {
-        wrapper.classList.add("active");
-        generateBtn.innerText = "Generate QR Code";
-    }
-    )
-    ;
-    })
-    ;
-
-    qrInput.addEventListener("keyup", () = &gt; {
-        if(
-    !qrInput.value.trim()
-    )
-    {
-        wrapper.classList.remove("active");
-        preValue = "";
-    }
-    })
-    ;
-</script>
 </html>
+
+
+<a href="#" class="download-link" style="display: none;">
+    <button type="button" class="btn btn-primary px-5 py-3 mt-2 w-100">Download QR code</button>
+</a>
